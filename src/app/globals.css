@@ -5,6 +5,11 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
 
 @layer base {
   :root {
@@ -85,4 +90,101 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.react-flow__attribution {
+  background: transparent !important;
+}
+
+.dark {
+  .react-flow__controls-button {
+    @apply !bg-accent;
+  }
+}
+
+/* app/globals.css */
+
+/* Modern scrollbar styling */
+@layer base {
+  /* width */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgb(243 244 246); /* gray-100 */
+    border-radius: 8px;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(156 163 175); /* gray-400 */
+    border-radius: 8px;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(107 114 128); /* gray-500 */
+  }
+
+  /* For Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(156 163 175) rgb(243 244 246);
+  }
+
+  /* For Edge and other browsers */
+  *::-ms-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  *::-ms-scrollbar-track {
+    background: rgb(243 244 246);
+    border-radius: 8px;
+  }
+
+  *::-ms-scrollbar-thumb {
+    background-color: rgb(156 163 175);
+    border-radius: 8px;
+  }
+  
+  /* Optional: Hide scrollbar while still allowing scroll */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+}
+
+/* Optional: Custom color variants */
+.scrollbar-dark {
+  scrollbar-color: rgb(55 65 81) rgb(31 41 55) !important; /* For Firefox */
+}
+
+.scrollbar-dark::-webkit-scrollbar-track {
+  background: rgb(31 41 55) !important; /* gray-800 */
+}
+
+.scrollbar-dark::-webkit-scrollbar-thumb {
+  background: rgb(55 65 81) !important; /* gray-700 */
+}
+
+.scrollbar-dark::-webkit-scrollbar-thumb:hover {
+  background: rgb(75 85 99) !important; /* gray-600 */
 }
